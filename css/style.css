@@ -1,0 +1,27 @@
+img{width: 100%;}
+.div1{margin-top: 10px;background-image: url('../images/nilgiri-resort.jpg');background-repeat:no-repeat;background-size: cover; height:  600px;}
+.div1 .col2row1{margin-top: 10px;}
+.div1 .p1{font-size: 50px;text-align: center; margin-top: 210px;}
+.div3{margin-top: 20px;}
+.div3 .head{font-size: 40px;}
+.div4{margin-top: 20px;}
+.div4 .head{margin-left: 20px;}
+.div4 .p1{ width: 720px; margin-left: 20px;}
+.div4 .buttonread{margin-left: 20px;}
+.div4 .col1{padding: 0px;}
+.div4 .col2{background-color: orange; padding: 0px;}
+.div5{text-align: center; margin-top: 20px;}
+.div6{margin-top: 20px;}
+.div6 .buttoncol{text-align: center; margin-top: 20px;}
+.div7{margin-top: 30px;}
+.div7 .col1{background-color: green; padding: 0px;}
+.div7 .col2{padding:0px}
+.div7 .head1{}
+.div7 .p1{width: 600px;}
+.div7 .button1{}
+.div8{margin-top: 20px;}
+.div8 .img{height: 300px;}
+.div8 .row2{text-align: center; margin-top: 20px;}
+.div9{background-color: black; color: white;}
+.div9 .head{text-align: center;}
+.div1 .col2row2{padding-right: 30px;}
