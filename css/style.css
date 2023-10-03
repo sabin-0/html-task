@@ -1,0 +1,15 @@
+img{width: 100%;}
+.div1{background-image: url('../images/bg1.jpg');background-repeat: no-repeat; background-size: cover; height: 500px;}
+.div1 .h1_1{line-height: 30px;color: yellow; font-size: 80px;}
+.div1 .h1_2{color: white; font-size: 80px;}
+.div1 .row1col1{padding-top: 80px;}
+.div1 .img1{width: 100px; height: 100px; }
+.div1 .row2{padding-top: 80px;}
+.div1 .p1{color: white; font-size: 20px;}
+.div1 .p2{color: white;line-height: 1px;}
+.div1 .row2col2_1{padding-left: 50px;}
+.mar-l{ margin-left: 2rem;}
+.div2 .img2{width: 100px; height: 100px;}
+.div2 .button1{background-color: red; }
+.div2{margin-top: 20px;}
+.div3{margin-top: 20px;}
