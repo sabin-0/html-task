@@ -1,0 +1,30 @@
+img{width: 100%}
+.div1{background-image: url('../images/coffee.jpg');height: 600px; background-size: cover; background-repeat: no-repeat; }
+.div1 .col1{padding-top: 150px;}
+.div1 .h1{color: white; font-family: 'PT Sans Narrow', sans-serif;}
+.h1s{color: yellow;}
+.div1 .p1{color: rgba(255, 255, 255, 0.7);}
+.div2 .h1{font-family: 'PT Sans Narrow', sans-serif;}
+.div2 .col1{padding-top: 45px;}
+.div2 .row2{padding-top: 30px;}
+.div2 .rowz{padding-top: 20px;}
+.div3{padding-top: 40px;}
+.div3 .col1{background-color: black; padding-top: 40px;}
+.div3 .h1{color: yellow; font-family: 'PT Sans Narrow', sans-serif;}
+.div3 .rowa{padding-top: 30px; color: white;}
+.div3 .hr1{color: red;}
+.div3 .img1{height: 500px;}
+.div3 .col2{padding: 0px;}
+.bt1{width: 100%;}
+.colbt1,.colbt2,.colbt3{padding-right: 3px; padding-left: 3px;}
+.colborder{border-bottom: 1px solid rgba(255, 255, 255, 0.5 );}
+.h2p{font-size: 30px;}
+
+@media (min-width: 576px) {
+    .h1s{color: red; font-size: 60px;} 
+    .h1{font-size: 60px;}}
+
+@media (min-width: 400px) and (max-width: 767.98px) {
+   
+    .bt1{margin-bottom: 10px; width:45%;}
+ }
