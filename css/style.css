@@ -1,0 +1,230 @@
+img{width: 100%;}
+.bgbg{background-color: #82ae46;}
+.headh{font-size: 11px;color: white;}
+.texts1{color: #82ae46;font-weight:800;font-size: 20px;}
+.navc{height: 50px;}
+.hh{font-size: 15px;}
+.ic{padding-top: 10px;}
+.icp{padding-top: 20px;}
+.row1{margin-top: 50px;}
+.head1{font-size: 15px;}
+.para1{font-size: 12px;}
+.cola{background-image:url('../images/fruits.jpg'); background-size: cover; background-repeat: no-repeat;height: 300px;}
+.colb{background-image:url('../images/vegetables.jpg'); background-size: cover; background-repeat: no-repeat; height: 300px;}
+.cold{background-image:url('../images/juices.jpg'); background-size: cover; background-repeat: no-repeat;height: 300px;}
+.cole{background-image:url('../images/dried.jpg'); background-size: cover; background-repeat: no-repeat; height: 300px;}
+.row2{margin-top: 50px;}
+.colc{background-image:url('../images/vgs.jpg'); background-size: cover; background-repeat: no-repeat;}
+.row3{margin-top: 40px;}
+.para2{margin-top: 30px;font-size: 15px; color: gray;}
+.img1{border: 1px black solid;height: 400px;}
+.m{padding-top: 23px;}
+.div3{padding-top: 150px;}
+.div5{background-image: url('../images/bg1.jpg'); margin-top: 70px; height: 600px; background-repeat: no-repeat; background-size: cover; background-position: center center;} 
+.div6{margin-top: 80px;}
+.div7{margin-bottom: 70px;}
+.img2{max-width: 100px; height: auto;}
+.row4{margin-top: 80px;margin-bottom: 80px; }
+.div6{border-bottom: 1px rgba(0,0,0,0.5) solid;}
+@media (max-width: 575.98px) { 
+    .c2,.c3{
+        display: none;
+    }
+ }
+ .cn{color: green;}
+.row5{margin-top: 80px;}
+.head2{background-color:  #86b300 ; display: inline-block;}
+
+
+.col3{background-image: url(../images/product-1.jpg);background-repeat: no-repeat;background-size: cover;  }
+.col4{background-image: url(../images/product-2.jpg);background-repeat: no-repeat;background-size: cover; }
+.col5{background-image: url(../images/product-3.jpg);background-repeat: no-repeat;background-size: cover; }
+.col6{background-image: url(../images/product-4.jpg);background-repeat: no-repeat;background-size: cover; }
+.col7{background-image: url(../images/product-5.jpg);background-repeat: no-repeat;background-size: cover; }
+.col8{background-image: url(../images/product-6.jpg);background-repeat: no-repeat;background-size: cover; }
+.col9{background-image: url(../images/product-7.jpg);background-repeat: no-repeat;background-size: cover; }
+.col10{background-image: url(../images/product-8.jpg.webp);background-repeat: no-repeat;background-size: cover; }
+
+
+.btn-success {
+    
+    font-size: 20px;
+    
+    letter-spacing: 1px;
+    line-height: 15px;
+   
+    border-radius: 40px;
+    
+    transition: all 0.3s ease 0s;
+  }
+  .fr{margin-top: 20px;}
+  .colab{margin-top: 150px;}
+  .div8{background-color: antiquewhite;}
+  .colnews{margin-top: 50px;margin-bottom: 40px;}
+  
+  .menu,.vegefoods,.help,.have{line-height: 40px;}
+  .rowfooter{margin-top: 30px;}
+  .cp{padding-top: 30px;}
+  .bp{padding-top: 160px;padding-left: 60px;}
+
+
+  #countdown li {
+    display: inline-block;
+    font-size: 1.5em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+    
+  }
+  
+  #countdown  li span {
+    display: block;
+    font-size: 4.5rem;
+  }
+   
+  
+  @media all and (max-width: 768px) {
+  
+    
+    #countdown li {
+      font-size: calc(1.125rem * var(--smaller));
+    }
+    
+    #countdown li span {
+      font-size: calc(3.375rem * var(--smaller));
+    }
+  }
+
+.truck{background-color:#e4b2d6; border-radius: 50%; width:100px;height: 100px; border:1px solid grey;padding:20px;color:white; font-size: 50px; transition: all 1s ease; border:double white;border-width: 6px;}
+.straw{background-color:#dcc698;; border-radius: 50%;border:1px grey;padding:20px;color:white;font-size:50px; transition: all 1s ease;border:double white;border-width: 6px;}
+.star{background-color: #8ceced; border-radius: 50%;border:1px grey;padding:20px;color:white;font-size:50px; transition: all 1s ease;border:double white;border-width: 6px;}
+.phone{background-color: #c9a908; border-radius: 50%;border:1px grey;padding:20px;color:white;font-size:50px; transition: all 1s ease;border:double white;border-width: 6px;}
+
+
+.truck:hover,.straw:hover,.star:hover,.phone:hover {
+  background-color: #75b346;
+  transition: all 1s ease;
+}
+  
+.vege{padding-top: 30px;}
+
+.mcc{max-width: 160px;}
+
+@media (min-width: 768px) { 
+  .zz{max-width: 50%;}
+}
+
+#customers-testimonials .shadow-effect {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+border:1px solid #ECECEC;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+}
+#customers-testimonials .shadow-effect .p {
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0 0 17px 0;
+  font-weight: 300;
+}
+.testimonial-name {
+  margin: -17px auto 0;
+  display: table;
+  width: auto;
+  background: #3190E7;
+  padding: 9px 35px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
+}
+#customers-testimonials .item {
+  text-align: center;
+  padding: 50px;
+  margin-bottom:80px;
+  opacity: .2;
+  -webkit-transform: scale3d(0.8, 0.8, 1);
+  transform: scale3d(0.8, 0.8, 1);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+#customers-testimonials .owl-item.active.center .item {
+  opacity: 1;
+  -webkit-transform: scale3d(1.0, 1.0, 1);
+  transform: scale3d(1.0, 1.0, 1);
+}
+.owl-carousel .owl-item img {
+  transform-style: preserve-3d;
+  max-width: 90px;
+  margin: 0 auto 17px;
+}
+#customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
+#customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+  background: #3190E7;
+  transform: translate3d(0px, -50%, 0px) scale(0.7);
+}
+#customers-testimonials.owl-carousel .owl-dots{
+display: inline-block;
+width: 100%;
+text-align: center;
+}
+#customers-testimonials.owl-carousel .owl-dots .owl-dot{
+display: inline-block;
+}
+#customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+  background: #3190E7;
+  display: inline-block;
+  height: 20px;
+  margin: 0 2px 5px;
+  transform: translate3d(0px, -50%, 0px) scale(0.3);
+  transform-origin: 50% 50% 0;
+  transition: all 250ms ease-out 0s;
+  width: 20px;
+}
+
+.cv1{height: 700px;}
+.imgbg{height: 650px;background-size: cover;background-repeat: no-repeat;position: relative;background-position: center center;z-index: 0;}
+.nav1{height: 100px;}
+.navhead{margin-top: 0px;}
+.perc{position: absolute;left: 0;right: 0;}
+
+.ts{font-size: 24px;    color: #82ae46;}
+.ts1{font-size: 15px;}
+.fp{font-size: 18px; color: #82ae46;}
+.op{font-size: 40px; color: black; font-weight: 600;}
+
+
+
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(1, 1);
+  }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+.carousel-inner .item > img {
+  -webkit-animation: zoom 10s;
+  animation: zoom 10s;
+}
+
+
+.cs1{height: 650px;}
+
+
+
+
