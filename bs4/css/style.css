@@ -1,0 +1,12 @@
+img{width: 100%;}
+
+.mar-l{ margin-left: 2rem;}
+.div2 .img2{width: 100px; height: 100px;}
+.div2 .button1{background-color: red; }
+.div2{margin-top: 20px;}
+.div3{margin-top: 20px;}
+@media(max-width:786px)
+{
+    .hh{text-align: center;}
+    .pp{text-align: center;}
+}
