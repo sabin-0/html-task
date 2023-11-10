@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.vid {
+    grid-area: vid;
+}
+
+.image {
+    grid-area: image;
+}
+
+.item{
+    border: 2px solid black;
+    padding: 20px;
+}
+
+
+.container{
+    display: grid;
+    grid-template-areas:
+    'logo . . .' 
+    'vid vid vid vid'
+    'image image image image';
+     margin: auto;
+   
+}
