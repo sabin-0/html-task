@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <!-- change text on button click -->
+    <div>
+        <button id="btn">click me</button>
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus odit vitae id sit alias, aut ducimus ut aperiam velit necessitatibus ipsam qui commodi facere voluptatum quidem accusamus. Vero, voluptatibus at?</p>
+    </div>
+
+    <!-- creating a to-do list -->
+    <input id="add" oninput="getvalue()" type="text">
+    <button onclick="addli()" >add item</button>
+    <ul id="list">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+
+    <!-- Form Validation -->
+    <h3>Name</h3> <input id="name" type="text">
+
+    <h3>Email</h3> <input id="email" type="text">
+
+    <h3>Password</h3> <input id="passw" type="text">
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
