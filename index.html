@@ -3,9 +3,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Responsive navigation menu -->
+    <div class="nav">
+        <a href="#home" class="active">NAVBAR</a>
+        
+        <div id="menu" >
+            <P id="p1"></P>
+            <p id="p2"></p>
+            <p id="p3"></p>
+        </div>
+       
+        <a  href="javascript:void(0);" class="icon">
+            <span  class="material-symbols-outlined">
+                menu
+                </span>
+        </a>
+      </div>
+
+
 
     
     <!-- change text on button click -->
@@ -23,13 +43,28 @@
         <li>three</li>
     </ul>
 
-    <!-- Form Validation -->
-    <h3>Name</h3> <input id="name" type="text">
 
-    <h3>Email</h3> <input id="email" type="text">
 
-    <h3>Password</h3> <input id="passw" type="text">
+    <!-- Image Slideshow -->
+    <div class="slide"
+        style="position: relative; display: flex; align-items: center; justify-content: center;top:550px;">
 
+
+        <img style="position: absolute; z-index: 3;" id="img1" class="img1" width="40%" src="images/1.webp" alt="">
+
+        <img style="position: absolute; z-index: 2;" id="img2" class="img2" width="40%" src="images/2.jpg" alt="">
+
+        <img style="position: absolute; z-index: 1;" id="img3" class="img3" width="40%" src="images/3.avif" alt="">
+
+        <img style="position: absolute; z-index: 0;" id="img4" class="img4" width="40%" src="images/4.webp" alt="">
+
+        <div class="buttons">
+            <a href="" id="left-arrow"><img src="images/left.png" width="80" alt=""></a>
+            <a id="right-arrow" href=""><img src="images/right.png" width="80" alt="" style="margin-left: 800px;"></a>
+        </div>
+
+    </div>
+    
 
 
     <script src="script.js"></script>
