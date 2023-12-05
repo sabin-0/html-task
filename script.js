@@ -1330,18 +1330,109 @@ greet.apply(obj,["hello","hello1"]);
 
 
 
+let obj = {
+    name : "harry",
+    age :30,
+    greeting : function () {
+        console.log("name : ",this.name);
+        console.log("age : ",this.age);
+    }
+
+}
+obj.greeting();
+
+// //constructor functions
+// function Person(name,age){
+//     this.name = name;
+//     this.age = age;
+//     this.greeting = function(){
+//         console.log("name : ",this.name);
+//         console.log("age : ",this.age);
+//     }
+// }
+
+// const person1 = new Person("John",30);
+// console.log("person1 : ",person1);
+// person1.greeting();
+
+// const person2 = new Person("Jane",25);
+// console.log("person2 : ",person2);
+// person2.greeting();
+
+// //updating individual objects
+// person2.place = "Ernakulam";
+// console.log("Person2.place : ",person2.place);
+
+// Person.prototype.getMark = function(){
+//     return this.mark;
+// }
+
+// console.log("Mark of person1 : ",person1.getMark());
+// console.log("Mark of person2 : ",person2.getMark());
 
 
+// }
+
+// {
+
+// let obj = {
+//     name : "bmw",
+//     color : "red",
+//     greeting : function (){
+//         console.log("name : ",this.name);
+//         console.log("color : ",this.color);
+//     }
+// }
+// console.log("obj : ",obj);
+// obj.greeting();
+
+// function Car(name,color){
+//     this.name = name;
+//     this.color = color;
+//     this.greeting = function(){
+//         console.log("name : ",this.name);
+//         console.log("color : ",this.color);
+//     }
+// }
+
+// const car1 = new Car("benz","black");
+// console.log("Car1 : ",car1);
+// car1.greeting();
+
+// const car2 = new Car("Audi","red");
+// console.log("Car2 : ",car2);
+// car2.greeting();
+
+// }
 
 
+//Using Classes
 
-    
+class Car{
+    name;
+    color;
+    year;
+
+    constructor(name, color, year){
+        this.name = name;
+        this.color = color;
+        this.year = year;
+    }
+
+    greeting(){
+        console.log("name : ",this.name);
+        console.log("color : ",this.color);
+        console.log("year : ",this.year);
+    }
+}
+
+let car1 = new Car("swift","red",2014);
+console.log("car1  ",car1);
+car1.greeting();
+
+let car2 = new Car("Mustang","white",2000);
+console.log("car2 : ",car2);
+car2.greeting();
 
 
-
-
-
-
-
- 
 
