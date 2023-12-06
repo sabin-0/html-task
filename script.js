@@ -1434,5 +1434,133 @@ let car2 = new Car("Mustang","white",2000);
 console.log("car2 : ",car2);
 car2.greeting();
 
+//new keyword is used to create a new object
+
+{
+class Animal{
+    name;
+
+    constructor(name){
+        this.name = name;
+    }
+
+    walk(){
+        console.log("Animal walking");
+    }
+}
+
+class Dog extends Animal{
+    nickName;
+
+    constructor(name,nickName){
+        super(name);//calls parent constructor
+        this.nickName = nickName;
+    }
+
+    walk(){
+        console.log("Dog walking...");
+    }
+}
+
+let myAnimal = new Animal("Monkey");
+console.log("myAnimal : ",myAnimal);
+myAnimal.walk();
+
+let myDog = new Dog("Parent of arjun","Arjun");
+console.log("myDog : ",myDog);
+myDog.walk();
+
+}
+
+//class car 
+{
+
+    class Car{
+        name;
+        color;
+        year;
+    
+        constructor(name, color, year){
+            this.name = name;
+            this.color = color;
+            this.year = year;
+        }
+    
+        greeting(){
+            console.log("name : ",this.name);
+            console.log("color : ",this.color);
+            console.log("year : ",this.year);
+        }
+    }
+
+    class Racingcar extends Car{
+        speed;
+
+        constructor(name,color,year,speed){
+            super(name,color,year);
+            this.speed = speed;
+        }
+
+        greeting(){
+            console.log("speed : ",this.speed);
+        }
+    }
+    
+    let car1 = new Car("swift","red",2014);
+    console.log("car1  ",car1);
+    car1.greeting();
+    
+    let car2 = new Car("Mustang","white",2000);
+    console.log("car2 : ",car2);
+    car2.greeting();
+
+    let car3 = new Racingcar("ferrari","red",2008,250);
+    console.log("car3 : ",car3);
+    car3.greeting();
+
+}
 
 
+{
+
+//Getters and Setters
+class car{
+
+    constructor (name) {
+        this.name = name;
+    }
+
+    //without using setters and getters
+    //  setColor(color) {
+        // this.color = color;
+    // }
+
+    // getColor(){
+    //     return this.color;
+    // }
+
+
+    //using getters and setters
+    set setColor(color) {
+        this.color = color;
+    }
+
+    get getColor() {
+        return this.color;
+    }
+
+}
+
+let myCar = new car("Benz");
+
+//setting color
+//myCar.setColor("Green"); //Without using setter
+myCar.setColor = "Green"; //Using setter
+
+console.log("myCar : ",myCar);
+
+//Getting Color
+//console.log("Color of myCar : ",myCar.getColor()); //Without using getter
+console.log("Color of myCar : ",myCar.color); //Using getter
+
+}
