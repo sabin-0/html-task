@@ -1637,3 +1637,78 @@ myYellowButton.onClick(function (){
 
 
 }
+
+
+//class paragraph
+{
+
+class Paragraph {
+
+    constructor(content) {
+    this.paragraph = document.createElement('p');
+    this.paragraph.innerHTML = content;
+    document.body.appendChild(this.paragraph);
+    }
+
+    set margin(margin) {
+        this.paragraph.style.margin = margin + "px";
+    }
+
+    set padding(padding) {
+        this.paragraph.style.padding = padding + "px";
+    }
+
+    set fontSize(fontSize) {
+        this.paragraph.style.fontSize = fontSize + "px";
+    } 
+
+    set lineHeight(lineHeight) {
+        this.paragraph.style.lineHeight = lineHeight + "px";
+    }
+
+
+}
+
+
+let myParagraph = new Paragraph("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+// console.log("myParagraph : ",myParagraph);
+
+
+myParagraph.margin = 30;
+myParagraph.padding = 20;
+myParagraph.fontSize = 20;
+myParagraph.lineHeight = 50;
+
+
+class Paragraph2 extends Paragraph {
+
+    constructor(content,btncontent) {
+        super(content);
+        this.button = document.createElement('button');
+        this.button.innerHTML = btncontent;
+        document.body.appendChild(this.button);
+        
+    }
+
+    set fontColor(fontColor) {
+        this.paragraph.style.color = fontColor;
+    }
+
+    set background(background) {
+        this.paragraph.style.background = background;
+    }
+}
+
+let myButton = new Paragraph2("click me");
+
+let newParagraph = new Paragraph2("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+
+newParagraph.margin = 40;
+newParagraph.padding = 30;
+newParagraph.fontSize = 30;
+newParagraph.lineHeight = 60;
+newParagraph.fontColor = "red";
+newParagraph.background = "yellow"; 
+
+
+}
