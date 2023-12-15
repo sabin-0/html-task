@@ -167,15 +167,88 @@ const regexp16 = /fish.*$/i;//Any character can occur after fish, '.' represents
 const result16 = regexp16.test(str3);//here it matches fishe , fisheswg, because of '*'
 console.log("result16 : ", result16);
 
+}
+
+{
+
+//Input validation
+//A-Z, a-z
+//0-9
+//_
+//starts with character
+
+const regexInp = /^[a-z][a-z0-9_]*$/i;
+
+function checkResult(value) {
+    const result = regexInp.test(value);
+
+    if(result) {
+        return '';
+    }else {
+        return 'invalid string';
+    }
+}
+
+const value = "maxpayne3";
+
+let validation_result = checkResult(value);
+console.log("Validation_result : ", validation_result);
 
 
-
-
-
+function onChange(arg) {
+    let validation_result = checkResult(arg.value);
+    let label = document.getElementById('error');
+    if(validation_result) {
+        label.innerHTML = validation_result;
+    }else {
+        label.innerHTML = validation_result;
+    }
+}
 
 }
 
 
+//string replace using regular expressions
+let str5 = "a-b-c";
+
+let replacedString1 = str5.replace(/-/,":");//Replaces first "-" with ":"
+console.log("replacedString1 : ",replacedString1); 
+
+let replacedString2 = str5.replace(/-/g,":");//Replaces all "-" with ":"
+console.log("replacedString2 : ",replacedString2);
+
+let dateStr = '12-10-04';
+
+let dateStrReplaced = dateStr.replace(/(\d{2})$/,'20$1');//gets 'o4' from dateStr and replace it as '2004 , $1 will get the value of the first capture group i.e; within '()' brackets.
+console.log("datesStrReplaced : ", dateStrReplaced);
+ 
+{
+
+//email validation using regular expressions
+
+const regexpe = /^[a-z][a-z0-9@\.]*$/;
+
+function checkResult1(value) {
+    const result = regexpe.test(value);
+
+    if(result) {
+        return '';
+    }else {
+        return 'invalid string';
+    }
+}
+
+function onChange1(arg) {
+    let validation_result = checkResult1(arg.value);
+    let label = document.getElementById('error');
+    if(validation_result) {
+        label.innerHTML = validation_result;
+    }else {
+        label.innerHTML = validation_result;
+    }
+}
+
+}
 
 
 
