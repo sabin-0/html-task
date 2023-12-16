@@ -98,6 +98,7 @@ const str4 = `
 good meat
 is always good
 `;
+const str5 = "hello"
 
 const regexp1 = /a/;
 const result1 = regexp1.test(str1);//checks if str1 has the letter 'a' in it
@@ -167,88 +168,187 @@ const regexp16 = /fish.*$/i;//Any character can occur after fish, '.' represents
 const result16 = regexp16.test(str3);//here it matches fishe , fisheswg, because of '*'
 console.log("result16 : ", result16);
 
-}
+const regexp17 = /[kjm]/i;
+const result17 = regexp17.test(str5);//if there is  a 'k' or 'j' or 'm' it will be true
+console.log("result17 : ",result17);
 
-{
+const regexp18 = /[^kjm]/i;
+const result18 = regexp18.test(str5);//if there is  no 'k' or 'j' or 'm' it will be true
+console.log("result18 : ",result18);
 
-//Input validation
-//A-Z, a-z
-//0-9
-//_
-//starts with character
+const regexp19 = /[H+]/i;//Atleast one 'H' is required
+const result19 = regexp19.test(str5);
+console.log("result19 : ",result19);
 
-const regexInp = /^[a-z][a-z0-9_]*$/i;
+const regexp20 = /0$/i;
+const result20 = regexp20.test(str5);//string ends with '0'
+console.log("result20 : ",result20);
+
+const regexp21 = /0?$/i;//'0' in string ending is optional
+const result21 = regexp21.test(str5);
+console.log("result21 : ",result21);
+
+const regexp22 = /0+$/i;//Atleast one '0' is required in the string ending
+const result22 = regexp22.test(str5);
+console.log("result22 : ",result22);
+
+//{} - indicates the number of characters, a{2} means "aa", ie 2 a is required
+const regexp23 = /L{2}o$/i;//'o' should be exactly after 2 L's
+const result23 = regexp23.test(str5);
+console.log("result23 : ",result23); 
+
+const regexp24 = /L{2,4}o$/i;//'o' should be exactly after 2 to 4 L's
+const result24 = regexp24.test(str5);
+console.log("result24 : ",result24); 
+
+const regexp25 = /HeL{2,4}o$/i;//'o' should be exactly after 2 to 4 L's and 'o'is required
+const result25 = regexp25.test(str5);
+console.log("result25 : ",result25); 
+
+const regexp26 = /L{2,}o$/i;//'2 or more 'L' is required
+const result26 = regexp26.test(str5);
+console.log("result26 : ",result26); 
+
+// \ - indiactes escape character, used for matching any characters which has special meaning
+const regexp27 = /\d/i;//if there is any digits it will be true, else it will be false
+const result27 = regexp27.test(str5);
+console.log("result27 : ", result27);
+
+const regexp28 = /\D/i;//if there is any non-digits it will be true, if there is only digits it will ve false
+const result28 = regexp28.test(str5);
+console.log("result28 : ", result28);
+
+//Suppose we want to match '.' in astring, since '.' has a special meaning in regular expressions, it will not work as expected and match everything
+
+const regexp29 = /./i;//if there is a '.' or anything it will match
+const result29 = regexp29.test(str5);
+console.log("result29 : ", result29);
+
+//so we can write it as
+const regexp30 = /\./i;//if there is any '.' in the string it will match, else it will be false
+const result30 = regexp30.test(str5);
+console.log("result30 : ", result30);
+
+//So \' (backslash) is used to escape special character
+
+//Date validation
+
+//1
+const regexpForDate = /^\d{1,2}-\d{1,2}-\d{4}$/i; //String should start with one or two digits, then after '-' aymbol, then again one or two digits, after '-', ending digits shoukd be 4
+
+//2
+// | - indicates or case 0 | 1 means either 0 or 1 can occur
+const regexpforDate1 = /^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i;//In the first group- if the first character is 0 or 1 or 2 then the second character can be any digits(0-9) or if the character is '3' then the second character should be 0 or 1 0r 2
+//In the last group four digits is allowed
 
 function checkResult(value) {
-    const result = regexInp.test(value);
+    const result = regexpForDate1.test(value);
 
     if(result) {
         return '';
     }else {
-        return 'invalid string';
+        return 'Invalid string';
     }
 }
 
-const value = "maxpayne3";
+const value = "16-12-2023"
 
 let validation_result = checkResult(value);
-console.log("Validation_result : ", validation_result);
+console.log("validation_result : ", validation_result);
 
-
-function onChange(arg) {
+function onChange(arg){
     let validation_result = checkResult(arg.value);
     let label = document.getElementById('error');
     if(validation_result) {
         label.innerHTML = validation_result;
     }else {
-        label.innerHTML = validation_result;
+        label.innerHTML + validation_result;
     }
 }
 
+
 }
 
+// {
 
-//string replace using regular expressions
-let str5 = "a-b-c";
+// //Input validation
+// //A-Z, a-z
+// //0-9
+// //_
+// //starts with character
 
-let replacedString1 = str5.replace(/-/,":");//Replaces first "-" with ":"
-console.log("replacedString1 : ",replacedString1); 
+// const regexInp = /^[a-z][a-z0-9_]*$/i;
 
-let replacedString2 = str5.replace(/-/g,":");//Replaces all "-" with ":"
-console.log("replacedString2 : ",replacedString2);
+// function checkResult(value) {
+//     const result = regexInp.test(value);
 
-let dateStr = '12-10-04';
+//     if(result) {
+//         return '';
+//     }else {
+//         return 'invalid string';
+//     }
+// }
 
-let dateStrReplaced = dateStr.replace(/(\d{2})$/,'20$1');//gets 'o4' from dateStr and replace it as '2004 , $1 will get the value of the first capture group i.e; within '()' brackets.
-console.log("datesStrReplaced : ", dateStrReplaced);
+// const value = "maxpayne3";
+
+// let validation_result = checkResult(value);
+// console.log("Validation_result : ", validation_result);
+
+
+// function onChange(arg) {
+//     let validation_result = checkResult(arg.value);
+//     let label = document.getElementById('error');
+//     if(validation_result) {
+//         label.innerHTML = validation_result;
+//     }else {
+//         label.innerHTML = validation_result;
+//     }
+// }
+
+// }
+
+
+// //string replace using regular expressions
+// let str5 = "a-b-c";
+
+// let replacedString1 = str5.replace(/-/,":");//Replaces first "-" with ":"
+// console.log("replacedString1 : ",replacedString1); 
+
+// let replacedString2 = str5.replace(/-/g,":");//Replaces all "-" with ":"
+// console.log("replacedString2 : ",replacedString2);
+
+// let dateStr = '12-10-04';
+
+// let dateStrReplaced = dateStr.replace(/(\d{2})$/,'20$1');//gets 'o4' from dateStr and replace it as '2004 , $1 will get the value of the first capture group i.e; within '()' brackets.
+// console.log("datesStrReplaced : ", dateStrReplaced);
  
-{
+// {
 
-//email validation using regular expressions
+// //email validation using regular expressions
 
-const regexpe = /^[a-z][a-z0-9@\.]*$/;
+// const regexpe = /^[a-z][a-z0-9@\.]*$/;
 
-function checkResult1(value) {
-    const result = regexpe.test(value);
+// function checkResult1(value) {
+//     const result = regexpe.test(value);
 
-    if(result) {
-        return '';
-    }else {
-        return 'invalid string';
-    }
-}
+//     if(result) {
+//         return '';
+//     }else {
+//         return 'invalid string';
+//     }
+// }
 
-function onChange1(arg) {
-    let validation_result = checkResult1(arg.value);
-    let label = document.getElementById('error');
-    if(validation_result) {
-        label.innerHTML = validation_result;
-    }else {
-        label.innerHTML = validation_result;
-    }
-}
+// function onChange1(arg) {
+//     let validation_result = checkResult1(arg.value);
+//     let label = document.getElementById('error');
+//     if(validation_result) {
+//         label.innerHTML = validation_result;
+//     }else {
+//         label.innerHTML = validation_result;
+//     }
+// }
 
-}
+// }
 
 
 
