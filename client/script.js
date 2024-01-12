@@ -21,6 +21,8 @@ async function getData() {
         <td><input type="email" name="email" id="email-${parsedData[i]._id}" value="${parsedData[i].email}" disabled=true></td>
         <td><input type="password" name="password" id="password-${parsedData[i]._id}" value="${parsedData[i].password}" disabled=true></td>
         <td><button onclick="handleEdit('${parsedData[i]._id}')">Edit</button></td>
+        <td><button onclick="handleSave('${parsedData[i]._id}')">Save</button></td>
+        <td><button onclick="handleDelete('${parsedData[i]._id}')">Delete</button></td>
         
         `
     }
@@ -48,4 +50,110 @@ function handleEdit(id) {
     let password = document.getElementById(`password-${id}`);
     console.log("password : ", password);
     password.disabled = false;
+}
+
+async function handleSave(id) {
+    console.log("id : ", id);
+
+    let firstnameTag = document.getElementById(`firstname-${id}`);
+    console.log("firstnameTag : ", firstnameTag);
+    let firstname = firstnameTag.value;
+    console.log("firstname : ", firstname);
+
+    let lastnameTag = document.getElementById(`lastname-${id}`);
+    console.log("lastnameTag : ", lastnameTag);
+    let lastname = lastnameTag.value;
+    console.log("lastname : ", lastname);
+
+    let emailTag = document.getElementById(`email-${id}`);
+    console.log("emailTag : ", emailTag);
+    let email = emailTag.value;
+    console.log("email : ", email);
+
+    let passwordTag = document.getElementById(`password-${id}`);
+    console.log("passwordTag : ", passwordTag);
+    let password = passwordTag.value;
+    console.log("password : ", password);
+
+    let data = {
+        id,
+        firstname,
+        lastname,
+        email,
+        password,
+    }
+
+    let jsonData = JSON.stringify(data);
+    console.log("jsonData : ",jsonData);
+
+    let response = await fetch('http://localhost:3000/editData',{
+        method : 'PUT',
+        Headers : {
+            "Content-Type" : "application/json",
+        },
+        body : jsonData,
+    });
+
+    console.log("response : ", response);
+    let parsed_response = await response.text();
+
+    if(parsed_response = "success") {
+        alert("Updation Success");
+    }else{
+        alert("Updation Failed");
+    }
+
+}
+
+async function handleDelete(id) {
+    console.log("id : ", id);
+
+    let firstnameTag = document.getElementById(`firstname-${id}`);
+    console.log("firstnameTag : ", firstnameTag);
+    let firstname = firstnameTag.value;
+    console.log("firstname : ", firstname);
+
+    let lastnameTag = document.getElementById(`lastname-${id}`);
+    console.log("lastnameTag : ", lastnameTag);
+    let lastname = lastnameTag.value;
+    console.log("lastname : ", lastname);
+
+    let emailTag = document.getElementById(`email-${id}`);
+    console.log("emailTag : ", emailTag);
+    let email = emailTag.value;
+    console.log("email : ", email);
+
+    let passwordTag = document.getElementById(`password-${id}`);
+    console.log("passwordTag : ", passwordTag);
+    let password = passwordTag.value;
+    console.log("password : ", password);
+
+    let data = {
+        id,
+        firstname,
+        lastname,
+        email,
+        password,
+    }
+
+    let jsonData = JSON.stringify(data);
+    console.log("jsonData : ",jsonData);
+
+    let response = await fetch('http://localhost:3000/deleteData',{
+        method : 'DELETE',
+        Headers : {
+            "Content-Type" : "application/json",
+        },
+        body : jsonData,
+    });
+
+    console.log("response : ", response);
+    let parsed_response = await response.text();
+
+    if(parsed_response = "success") {
+        alert("Deletion Success");
+    }else{
+        alert("Deletion Failed");
+    }
+
 }
