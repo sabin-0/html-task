@@ -1,7 +1,7 @@
 async function getData() {
 
     console.log("Hello World");
-    let data = await fetch('http://localhost:3000/getData');
+    let data = await fetch('http://localhost:5000/getData');
     console.log("data : ", data);
 
     let parsedData = await data.json();
@@ -86,7 +86,7 @@ async function handleSave(id) {
     let jsonData = JSON.stringify(data);
     console.log("jsonData : ",jsonData);
 
-    let response = await fetch('http://localhost:3000/editData',{
+    let response = await fetch('/editData',{
         method : 'PUT',
         Headers : {
             "Content-Type" : "application/json",
