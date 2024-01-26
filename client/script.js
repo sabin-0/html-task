@@ -1,3 +1,42 @@
+async function submitForm() {
+    let firstname = document.getElementById('firstname').value;
+    console.log("first name : ", firstname);
+
+    let lastname = document.getElementById('lastname').value;
+    console.log("last name : ", lastname);
+
+    let email = document.getElementById('email').value;
+    console.log("email : ", email);
+
+    let password = document.getElementById('password').value;
+    console.log("password : ", password);
+
+    let data = {
+        firstname,
+        lastname,
+        email,
+        password
+    }
+
+    let json_data = JSON.stringify(data);
+
+    let response = await fetch('/submit', {
+        "method" : "POST",
+        "headers" : {
+            "Content-Type" : "application/json",
+        },
+        "body" : json_data,
+    });
+
+    let parsed_response = await response.text();
+
+    if(parsed_response === "success") {
+        alert("Form submitted successfully");
+    }else {
+        alert("Form submission failed");
+    }
+}
+
 async function getData() {
 
     console.log("Hello World");
@@ -22,7 +61,6 @@ async function getData() {
         <td><input type="password" name="password" id="password-${parsedData[i]._id}" value="${parsedData[i].password}" disabled=true></td>
         <td><button onclick="handleEdit('${parsedData[i]._id}')">Edit</button></td>
         <td><button onclick="handleSave('${parsedData[i]._id}')">Save</button></td>
-        <td><button onclick="handleDelete('${parsedData[i]._id}')">Delete</button></td>
         
         `
     }
@@ -105,55 +143,22 @@ async function handleSave(id) {
 
 }
 
-async function handleDelete(id) {
-    console.log("id : ", id);
-
-    let firstnameTag = document.getElementById(`firstname-${id}`);
-    console.log("firstnameTag : ", firstnameTag);
-    let firstname = firstnameTag.value;
+function validateName() {
+    let firstnamename = document.getElementById('firstname').value;
     console.log("firstname : ", firstname);
 
-    let lastnameTag = document.getElementById(`lastname-${id}`);
-    console.log("lastnameTag : ", lastnameTag);
-    let lastname = lastnameTag.value;
-    console.log("lastname : ", lastname);
+    let name_error = document.getElementById('firstname-error');
 
-    let emailTag = document.getElementById(`email-${id}`);
-    console.log("emailTag : ", emailTag);
-    let email = emailTag.value;
-    console.log("email : ", email);
+    let firstname_regex = /^[a-zA-Z]{2,30}( [a-zA-Z]{2,30})?$/;
 
-    let passwordTag = document.getElementById(`password-${id}`);
-    console.log("passwordTag : ", passwordTag);
-    let password = passwordTag.value;
-    console.log("password : ", password);
+    let isNameValid = name_regex.test(firstname);
+    console.log("isNameValid : ", isNameValid);
 
-    let data = {
-        id,
-        firstname,
-        lastname,
-        email,
-        password,
+    if(!isNameValid) {
+        name_error.innerHTML = "Invalid Name";
+        return;
+    }else {
+        name_error.innerHTML = "";
+        return;
     }
-
-    let jsonData = JSON.stringify(data);
-    console.log("jsonData : ",jsonData);
-
-    let response = await fetch('http://localhost:3000/deleteData',{
-        method : 'DELETE',
-        Headers : {
-            "Content-Type" : "application/json",
-        },
-        body : jsonData,
-    });
-
-    console.log("response : ", response);
-    let parsed_response = await response.text();
-
-    if(parsed_response = "success") {
-        alert("Deletion Success");
-    }else{
-        alert("Deletion Failed");
-    }
-
 }
