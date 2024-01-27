@@ -143,22 +143,81 @@ async function handleSave(id) {
 
 }
 
-function validateName() {
-    let firstnamename = document.getElementById('firstname').value;
+function validatefirstName() {
+    let firstname = document.getElementById('firstname').value;
     console.log("firstname : ", firstname);
 
-    let name_error = document.getElementById('firstname-error');
+    let firstname_error = document.getElementById('firstname-error');
 
     let firstname_regex = /^[a-zA-Z]{2,30}( [a-zA-Z]{2,30})?$/;
 
-    let isNameValid = name_regex.test(firstname);
-    console.log("isNameValid : ", isNameValid);
+    let isfirstNameValid = firstname_regex.test(firstname);
+    console.log("isfirstNameValid : ", isfirstNameValid);
 
-    if(!isNameValid) {
-        name_error.innerHTML = "Invalid Name";
+    if(!isfirstNameValid) {
+        firstname_error.innerHTML = "Invalid Name";
         return;
     }else {
-        name_error.innerHTML = "";
+        firstname_error.innerHTML = "";
+        return;
+    }
+}
+
+function validatelastName() {
+    let lastname = document.getElementById('lastname').value;
+    console.log("lastname : ", lastname);
+
+    let lastname_error = document.getElementById('lastname-error');
+
+    let lastname_regex = /^[a-zA-Z]{2,30}( [a-zA-Z]{2,30})?$/;
+
+    let islastNameValid = lastname_regex.test(lastname);
+    console.log("islastNameValid : ", islastNameValid);
+
+    if(!islastNameValid) {
+        lastname_error.innerHTML = "Invalid Name";
+        return;
+    }else {
+        lastname_error.innerHTML = "";
+        return;
+    }
+}
+
+function validateEmail() {
+    let email = document.getElementById('email').value;
+    console.log("email : ", email);
+
+    let email_error = document.getElementById('email-error');
+
+    let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    let isEmailvalid = email_regex.test(email);
+    console.log("isEmailvalid : ", isEmailvalid);
+
+    if(!isEmailvalid) {
+        email_error.innerHTML = "Invalid Email";
+        return;
+    }else {
+        email_error.innerHTML = "";
+    }
+}
+
+function validatePassword() {
+    let password = document.getElementById('password').value;
+    console.log("password : ", password);
+
+    let password_error = document.getElementById('password-error');
+
+    let password_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+
+    let isPasswordvalid = password_regex.test(password);
+    console.log("isPasswordvalid : ",isPasswordvalid);
+
+    if(!isPasswordvalid) {
+        password_error.innerHTML = "Invalid Password";
+        return;
+    }else {
+        password_error.innerHTML = "";
         return;
     }
 }
