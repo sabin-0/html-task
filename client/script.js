@@ -61,7 +61,7 @@ async function getData() {
         <td><input type="password" name="password" id="password-${parsedData[i]._id}" value="${parsedData[i].password}" disabled=true></td>
         <td><button onclick="handleEdit('${parsedData[i]._id}')">Edit</button></td>
         <td><button onclick="handleSave('${parsedData[i]._id}')">Save</button></td>
-        
+        </tr>
         `
     }
 

@@ -1,4 +1,5 @@
 const users = require('../db/models/users');
+let bcrypt = require('bcryptjs');
 const success_function = require('../utils/response-handler').success_function;
 const error_function = require('../utils/response-handler').error_function;
 
@@ -6,10 +7,13 @@ const error_function = require('../utils/response-handler').error_function;
 
 async function createUser(req, res) {
     try {
-        let datas = req.body;
+        let firstname = req.body.firstname;
+        let lastname = req.body.lastname;
+        let email = req.body.email;
+        let password = req.body.password;
         
         //validate
-        let userFound = await users.findOne({email : datas.email});
+        let userFound = await users.findOne({email});
 
         if(userFound) {
             let response = error_function({
@@ -20,14 +24,32 @@ async function createUser(req, res) {
             return;
         }
 
+        //Hashing password
+        let salt = await bcrypt.genSalt(10);
+        console.log("salt : ", salt);
+
+        let hashed_passed = bcrypt.hashSync(password, salt);
+        console.log("hashed password : ", hashed_passed);
+
         //Save to Database
-        let new_user = await users.create(datas);
+        let new_user = await users.create({
+            firstname,
+            lastname,
+            email,
+            password : hashed_passed,
+        });
 
         if (new_user) {
+            let response_datas = {
+                _id : new_user.id,
+                firstname : new_user.firstname,
+                lastname : new_user.lastname,
+                email : new_user.email,
+            }
             console.log("new_user : ", new_user);
             let response = success_function({
                 statusCode : 201,
-                data : new_user,
+                data : response_datas,
                 message : "User created successfully",
             })
             res.status(response.statusCode).send(response);
@@ -87,71 +109,6 @@ async function getUserData(req, res) {
     }
 }
 
-
-
-
-// async function getUserData(req, res) {
-//     try {
-//         const userId = req.params.userId; 
-
-//         const userData = await users.findById(userId); 
-
-//         if (userData) {
-//             res.status(200).json(userData);
-//             return;
-//         } else {
-//             res.status(404).send('User not found');
-//             return;
-//         }
-//     } catch (error) {
-//         console.error("Error: ", error);
-//         res.status(500).send("Internal Server Error");
-//         return;
-//     }
-// }
-
-
-// async function updateUser(req, res) {
-//     try {
-//         const userId = req.params.userId;
-
-//         const updatedData = req.body;
-
-//         const updatedUser = await users.findByIdAndUpdate(userId, updatedData, { new: true });
-
-//         if (updatedUser) {
-//             res.status(200).json(updatedUser);
-//             return;
-//         } else {
-//             res.status(404).send('User not found');
-//             return;
-//         }
-//     } catch (error) {
-//         console.error("Error: ", error);
-//         res.status(500).send("Internal Server Error");
-//         return;
-//     }
-// }
-
-
-// async function deleteUser(req, res) {
-//     try {
-//         const userId = req.params.userId;
-//         const deletedUser = await users.findByIdAndDelete(userId);
-
-//         if (deletedUser) {
-//             res.status(200).send('User deleted successfully');
-//             return;
-//         } else {
-//             res.status(404).send('User not found');
-//             return;
-//         }
-//     } catch (error) {
-//         console.error("Error: ", error);
-//         res.status(500).send("Internal Server Error");
-//         return;
-//     }
-// }
 
 
 module.exports = {
