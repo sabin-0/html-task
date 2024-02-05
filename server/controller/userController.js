@@ -7,6 +7,10 @@ const error_function = require('../utils/response-handler').error_function;
 
 async function createUser(req, res) {
     try {
+        let token = req.headers['authorization'].split(' ')[1];
+        console.log("token : ", token);
+
+        
         let firstname = req.body.firstname;
         let lastname = req.body.lastname;
         let email = req.body.email;

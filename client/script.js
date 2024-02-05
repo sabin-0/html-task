@@ -20,10 +20,15 @@ async function submitForm() {
 
     let json_data = JSON.stringify(data);
 
-    let response = await fetch('http://localhost:3001/submit', {
+    //get jwt token from localstorage
+    let token = localStorage.getItem('token');
+    console.log("token : ", token);
+
+    let response = await fetch('http://localhost:3001/users', {
         "method" : "POST",
         "headers" : {
             "Content-Type" : "application/json",
+            "authorization" : `Bearer ${token}`,
         },
         "body" : json_data,
     });
@@ -46,21 +51,23 @@ async function getData() {
     let parsedData = await data.json();
     console.log("parsedData : ", parsedData);
 
+    let pd = parsedData.data;
+
     let content = document.getElementById("content");
     console.log("content : ", content);
 
     let rows = "";
 
-    for(let i=0; i<parsedData.length;i++) {
+    for(let i=0; i<pd.length;i++) {
         rows = rows + `
         <tr>
-        <td>${parsedData[i]._id}</td>
-        <td><input type="text" name="firstname" id="firstname-${parsedData[i]._id}" value=${parsedData[i].firstname}" disabled=true></td>
-        <td><input type="text" name="lastname" id="lastname-${parsedData[i]._id}" value="${parsedData[i].lastname}" disabled=true></td>
-        <td><input type="email" name="email" id="email-${parsedData[i]._id}" value="${parsedData[i].email}" disabled=true></td>
-        <td><input type="password" name="password" id="password-${parsedData[i]._id}" value="${parsedData[i].password}" disabled=true></td>
-        <td><button onclick="handleEdit('${parsedData[i]._id}')">Edit</button></td>
-        <td><button onclick="handleSave('${parsedData[i]._id}')">Save</button></td>
+        <td>${pd[i]._id}</td>
+        <td><input type="text" name="firstname" id="firstname-${pd[i]._id}" value=${pd[i].firstname}" disabled=true></td>
+        <td><input type="text" name="lastname" id="lastname-${pd[i]._id}" value="${pd[i].lastname}" disabled=true></td>
+        <td><input type="email" name="email" id="email-${pd[i]._id}" value="${pd[i].email}" disabled=true></td>
+        <td><input type="password" name="password" id="password-${pd[i]._id}" value="${pd[i].password}" disabled=true></td>
+        <td><button onclick="handleEdit('${pd[i]._id}')">Edit</button></td>
+        <td><button onclick="handleSave('${pd[i]._id}')">Save</button></td>
         </tr>
         `
     }
@@ -218,6 +225,47 @@ function validatePassword() {
         return;
     }else {
         password_error.innerHTML = "";
+        return;
+    }
+}
+
+async function login() {
+    let email = document.getElementById('login_email').value;
+    let password = document.getElementById('login_password').value;
+
+    let datas = {
+        email,
+        password
+    }
+
+    let json_datas = JSON.stringify(datas);
+
+    let response = await fetch('http://localhost:3001/login',{
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json",
+        },
+        body : json_datas,
+    });
+
+    let parsed_response = await response.json();
+    console.log("parsed_response : ", parsed_response);
+
+    if(parsed_response.success) {
+        console.log("Reached here");
+
+        let token = parsed_response.data;
+        console.log("token : ", token);
+
+        alert(parsed_response.message);
+
+        localStorage.setItem('token' , token);
+        window.location.href = "get_user.html";
+
+        return;
+
+    }else {
+        alert(parsed_response.message);
         return;
     }
 }
