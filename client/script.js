@@ -229,6 +229,9 @@ function validatePassword() {
     }
 }
 
+
+//login
+
 async function login() {
     let email = document.getElementById('login_email').value;
     let password = document.getElementById('login_password').value;

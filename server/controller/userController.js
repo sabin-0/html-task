@@ -1,7 +1,9 @@
 const users = require('../db/models/users');
 let bcrypt = require('bcryptjs');
+const check_login = require('../utils/checkLogin').check_login;
 const success_function = require('../utils/response-handler').success_function;
 const error_function = require('../utils/response-handler').error_function;
+
 
 //submit data
 
@@ -79,7 +81,9 @@ async function createUser(req, res) {
 
 }
 
+
 //getdata
+
 
 async function getUserData(req, res) {
     try {
