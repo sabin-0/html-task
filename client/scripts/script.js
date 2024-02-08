@@ -114,6 +114,83 @@ async function movieData() {
 
 }
 
+
+
+//view page
+
+
+async function viewPageData() {
+    console.log("Hello World");
+    let data = await fetch('http://localhost:3002/getData');
+    console.log("data : ", data);
+
+    let parsedData = await data.json();
+    console.log("parsedData : ", parsedData);
+
+    let pd = parsedData.data;
+
+    let movie1 = document.getElementById("movie1");
+    console.log("movie1 : ", movie1);
+
+    // let content1 = document.getElementById("content1");
+    // console.log("content1 : ", content1);
+
+    // let content2 = document.getElementById("content2");
+    // console.log("content2 : ", content2);
+
+    // let content3 = document.getElementById("content3");
+    // console.log("content3 : ", content3);
+
+    // let content4 = document.getElementById("content4");
+    // console.log("content4 : ", content4);
+
+    let viewdata1 = "";
+             viewdata1 = viewdata1 + `
+             <p><input type="text" name="moviename" id="moviename-${pd[0]._id}" value="${pd[0].moviename}" disabled=true></p>
+             <p><input type="text" name="genre" id="genre-${pd[0]._id}" value="${pd[0].genre}" disabled=true></p>
+             <p><input type="text" name="language" id="language-${pd[0]._id}" value="${pd[0].language}" disabled=true></p>
+             <p><input type="text" name="runtime" id="runtime-${pd[0]._id}" value="${pd[0].runtime}" disabled=true></p>
+             <p><input type="text" name="certification" id="certification-${pd[0]._id}" value="${pd[0].certification}" disabled=true></p>
+             <p><input type="text" name="releasedate" id="releasedate-${pd[0]._id}" value="${pd[0].releasedate}" disabled=true></p>
+             <p><input type="text" name="aboutmovie" id="aboutmovie-${pd[0]._id}" value="${pd[0].aboutmovie}" disabled=true></p>
+             `;
+
+    // let moviedata1 = "";
+    //          moviedata1 = moviedata1 + `
+    //          <p><input type="text" name="moviename" id="moviename-${pd[1]._id}" value="${pd[1].moviename}" disabled=true></p>
+    //          <p><input type="text" name="genre" id="genre-${pd[1]._id}" value="${pd[1].genre}" disabled=true></p>
+    //          `;
+
+    //          let moviedata2 = "";
+    //          moviedata2 = moviedata2 + `
+    //          <p><input type="text" name="moviename" id="moviename-${pd[2]._id}" value="${pd[2].moviename}" disabled=true></p>
+    //          <p><input type="text" name="genre" id="genre-${pd[2]._id}" value="${pd[2].genre}" disabled=true></p>
+    //          `;
+
+    //          let moviedata3 = "";
+    //          moviedata3 = moviedata3 + `
+    //          <p><input type="text" name="moviename" id="moviename-${pd[3]._id}" value="${pd[3].moviename}" disabled=true></p>
+    //          <p><input type="text" name="genre" id="genre-${pd[3]._id}" value="${pd[3].genre}" disabled=true></p>
+    //          `;
+
+    //          let moviedata4 = "";
+    //          moviedata4 = moviedata4 + `
+    //          <p><input type="text" name="moviename" id="moviename-${pd[4]._id}" value="${pd[4].moviename}" disabled=true></p>
+    //          <p><input type="text" name="genre" id="genre-${pd[4]._id}" value="${pd[4].genre}" disabled=true></p>
+    //          `;
+         
+    
+         movie1.innerHTML = viewdata1;
+        //  content1.innerHTML = moviedata1;
+        //  content2.innerHTML = moviedata2;
+        //  content3.innerHTML = moviedata3;
+        //  content4.innerHTML = moviedata4;
+
+}
+
+
+
+
 // async function getData() {
 
 //     console.log("Hello World");
