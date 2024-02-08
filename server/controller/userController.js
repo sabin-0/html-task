@@ -98,6 +98,7 @@ async function getUserData(req, res) {
                 message: "All users retrieved successfully",
             });
             res.status(response.statusCode).send(response);
+            return;
         } else {
             // No users found, send appropriate response
             let response = error_function({
@@ -105,6 +106,7 @@ async function getUserData(req, res) {
                 message: "No users found",
             });
             res.status(response.statusCode).send(response);
+            return;
         }
     } catch (error) {
         console.log("error : ", error);
@@ -114,6 +116,7 @@ async function getUserData(req, res) {
             message: "Internal server error",
         });
         res.status(response.statusCode).send(response);
+        return;
     }
 }
 

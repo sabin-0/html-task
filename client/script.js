@@ -45,7 +45,17 @@ async function submitForm() {
 async function getData() {
 
     console.log("Hello World");
-    let data = await fetch('http://localhost:3001/getData');
+
+    let token = localStorage.getItem('token');
+    console.log("token : ", token);
+
+    let data = await fetch('http://localhost:3001/getData',{
+        "method" : "GET",
+        "headers" : {
+            "authorization" : `Bearer ${token}`
+        }
+    });
+    
     console.log("data : ", data);
 
     let parsedData = await data.json();
